@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 
 ##################### CRAWL FORUMS #####################
-driver = webdriver.Chrome('/Users/haley/Desktop/MA/MACompLing/WebScraping/chromedriver')
+driver = webdriver.Chrome('directory of chromedriver in your PC')
 
 # reference: https://towardsdatascience.com/scraping-multiple-urls-with-python-tutorial-2b74432d085f
 """ function to get list of replies """
@@ -24,7 +24,7 @@ def crawler(link):
     return titles # a list of quote-reply pairs
 
 #""" CHANGE FN FOR LINKS """
-urlist = open("/Users/haley/Desktop/WORK/links.txt", "r")
+urlist = ["list of lihkg links as in the format in line 29"]
 ti = [c for line in urlist for c in crawler(line.strip()) if c != '']
 #ti = crawler('https://lihkg.com/thread/2282219/page/1')
 
@@ -35,7 +35,7 @@ driver.quit()
 df = pd.DataFrame(ti, columns=["Link", "Title"])
 
 #CHANGE FN FOR OUTPUT CSV
-df.to_csv('/Users/haley/Desktop/WORK/lihkgPAIRStitle.csv', index = False) 
+df.to_csv('fn', index = False) 
 
 
 
